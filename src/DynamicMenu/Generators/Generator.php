@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Helpers\Generators;
+namespace DynamicMenu\Generators;
 
-use App\Helpers\Customizations\Customization;
+use DynamicMenu\Customizations\Customization;
 
 /**
  * Dynamic Menu
@@ -44,7 +44,7 @@ abstract class Generator
     /**
      * Set Customization class
      * 
-     * @param \App\Helpers\Customizations\Customization $custom
+     * @param \DynamicMenu\Customizations\Customization $custom
      * @return $this
      */ 
     public function withCustom(Customization $custom)

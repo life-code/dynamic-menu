@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Helpers;
+namespace DynamicMenu;
 
-use App\Helpers\Generators\ArrayGenerator;
-use App\Helpers\Generators\ObjectGenerator;
-use App\Helpers\Collections\ArrayCollection;
-use App\Helpers\Customizations\Customization;
-use App\Helpers\Collections\ObjectCollection;
+use DynamicMenu\Generators\ArrayGenerator;
+use DynamicMenu\Generators\ObjectGenerator;
+use DynamicMenu\Collections\ArrayCollection;
+use DynamicMenu\Customizations\Customization;
+use DynamicMenu\Collections\ObjectCollection;
 
 /**
  * Dynamic Menu
@@ -30,21 +30,21 @@ class DynamicMenu
     /**
      * Instance of class Customization.
      * 
-     * @var \App\Helpers\Customizations\Customization
+     * @var \DynamicMenu\Customizations\Customization
      */ 
     private $custom;
     
     /**
      * Instance of class ArrayCollection / ObjectCollection.
      * 
-     * @var \App\Helpers\Contracts\CollectionContract
+     * @var \DynamicMenu\Contracts\CollectionContract
      */ 
     private $collection;
     
     /**
      * Instance of class ArrayGenerator / ObjectGenerator.
      * 
-     * @var \App\Helpers\Contracts\GeneratorContract
+     * @var \DynamicMenu\Contracts\GeneratorContract
      */ 
     private $generator;
     

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Helpers\Collections;
+namespace DynamicMenu\Collections;
 
-use App\Helpers\Collections\Collection;
-use App\Helpers\Contracts\CollectionContract;
+use DynamicMenu\Collections\Collection;
+use DynamicMenu\Contracts\CollectionContract;
 
 /**
  * Dynamic Menu

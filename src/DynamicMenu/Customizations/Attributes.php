@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Helpers\Customizations;
+namespace DynamicMenu\Customizations;
 
-use App\Helpers\Exceptions\DynamicMenuException;
+use DynamicMenu\Exceptions\DynamicMenuException;
 
 /**
  * Dynamic Menu
@@ -104,7 +104,7 @@ trait Attributes
      * Hanlder property exists
      * 
      * @param string $attribute
-     * @trows \App\Helpers\Exceptions\DynamicMenuException
+     * @trows \DynamicMenu\Exceptions\DynamicMenuException
      * @return void
      */ 
     private function handlerProperty(string $attribute)
@@ -119,7 +119,7 @@ trait Attributes
      * 
      * @param string $attribute
      * @param string $key
-     * @trows \App\Helpers\Exceptions\DynamicMenuException
+     * @trows \DynamicMenu\Exceptions\DynamicMenuException
      * @return void
      */ 
     private function handlerKey(string $attribute, string $key)

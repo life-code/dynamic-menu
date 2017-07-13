@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Helpers\Generators;
+namespace DynamicMenu\Generators;
 
-use App\Helpers\Generators\Generator;
-use App\Helpers\Contracts\GeneratorContract;
+use DynamicMenu\Generators\Generator;
+use DynamicMenu\Contracts\GeneratorContract;
 
 /**
  * Dynamic Menu

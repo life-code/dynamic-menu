@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helpers\Collections;
+namespace DynamicMenu\Collections;
 
 /**
  * Dynamic Menu

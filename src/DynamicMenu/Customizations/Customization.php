@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Helpers\Customizations;
+namespace DynamicMenu\Customizations;
 
-use App\Helpers\Customizations\Attributes;
+use DynamicMenu\Customizations\Attributes;
 
 /**
  * Dynamic Menu
