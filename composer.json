@@ -1,6 +1,7 @@
 {
     "name": "life-code/dynamic-menu",
     "description": "Dynamic menu for websites and systems",
+    "keywords": ["menu", "dynamic menu", "dynamic-menu"],
     "type": "library",
     "license": "MIT",
     "authors": [
