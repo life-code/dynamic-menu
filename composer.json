@@ -1,0 +1,30 @@
+{
+    "name": "life-code/dynamic-menu",
+    "description": "Dynamic menu for websites and systems",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vinicius Pugliesi",
+            "email": "vinicius_pugliesi@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "DynamicMenu\\": "src/DynamicMenu/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DynamicMenu\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
