@@ -10,13 +10,13 @@
 </p>
 
 
-<h3>About Dynamic Menu</h3>
+## About Dynamic Menu
 <p align="justify">
    The Dynamic Menu is a class package to facilitate the development of dynamic menus for websites and systems. The Dynamic Menu uses the international database pattern to generate the same. o desenvolvimento de menus dinâmicos para sites e sistemas. O Menu Dinâmico utiliza o padrão de banco de dados internacional para gerar o mesmo.
 <p>
 
-<h3>Contributing</h3>
+## Contributing
 Contribute to the Dynamic Menu and help bring this idea forward!
 
-<h3>License</h3>
+## License
 The Dynamic Menu is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
