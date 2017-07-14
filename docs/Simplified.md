@@ -1,3 +1,5 @@
+# Simplified
+
 ## Install by Composer:
 
 ```sh
