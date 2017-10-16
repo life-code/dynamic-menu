@@ -93,6 +93,7 @@ trait Attributes
     {
         foreach ($ul_dropdown as $key => $value) {
             $this->handlerKey('ul_dropdown', $key);
+            $this->ul_dropdown[$key] = $value;
         }
         
         return $this;
@@ -108,6 +109,7 @@ trait Attributes
     {
         foreach ($li_dropdown as $key => $value) {
             $this->handlerKey('li_dropdown', $key);
+            $this->li_dropdown[$key] = $value;
         }
         
         return $this;
@@ -123,6 +125,7 @@ trait Attributes
     {
         foreach ($li as $key => $value) {
             $this->handlerKey('li', $key);
+            $this->li[$key] = $value;
         }
         
         return $this;
@@ -138,6 +141,7 @@ trait Attributes
     {
         foreach ($a_dropdown as $key => $value) {
             $this->handlerKey('a_dropdown', $key);
+            $this->a_dropdown[$key] = $value;
         }
         
         return $this;
@@ -153,6 +157,7 @@ trait Attributes
     {
         foreach ($a as $key => $value) {
             $this->handlerKey('a', $key);
+            $this->a[$key] = $value;
         }
         
         return $this;
