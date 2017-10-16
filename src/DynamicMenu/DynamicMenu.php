@@ -7,6 +7,8 @@ use DynamicMenu\Generators\ObjectGenerator;
 use DynamicMenu\Collections\ArrayCollection;
 use DynamicMenu\Customizations\Customization;
 use DynamicMenu\Collections\ObjectCollection;
+use DynamicMenu\Supports\DefaultConfig;
+use Closure;
 
 /**
  * Dynamic Menu
@@ -25,7 +27,14 @@ class DynamicMenu
      *
      * @var string
      */
-    const VERSION = '1.0.3';
+    const VERSION = '2.0.0';
+    
+    /**
+     * Instance of class DefaultConfig.
+     * 
+     * @var \DynamicMenu\Supports\DefaultConfig
+     */ 
+    private $config;
     
     /**
      * Instance of class Customization.
@@ -55,6 +64,7 @@ class DynamicMenu
      */ 
     public function __construct()
     {
+        $this->config = new DefaultConfig();
         $this->custom = new Customization();
     }
 
@@ -69,15 +79,27 @@ class DynamicMenu
     }
     
     /**
-     * Set style.
+     * Get DefaultConfig class
      * 
-     * @param string $attribute
-     * @param array $style
+     * @param Closure $callback
      * @return $this
      */
-    public function withStyle(string $attribute, array $style)
+    public function config(Closure $callback)
     {
-        $this->custom->setStyle($attribute, $style);
+        call_user_func($callback, $this->config);
+        
+        return $this;
+    }
+    
+    /**
+     * Get Customization class
+     * 
+     * @param Closure $callback
+     * @return $this
+     */
+    public function style(Closure $callback)
+    {
+        call_user_func($callback, $this->custom);
         
         return $this;
     }
@@ -90,10 +112,12 @@ class DynamicMenu
      */
     public function setContentArray(array $items)
     {
-        $this->collection = new ArrayCollection($items);
+        $this->collection = new ArrayCollection($items, $this->config);
         
         $this->generator = new ArrayGenerator(
-            $this->collection->sortStructure()
+            $this->collection->sortStructure(),
+            $this->config,
+            $this->custom
         );
         
         return $this;
@@ -107,10 +131,12 @@ class DynamicMenu
      */
     public function setContentObject($items)
     {
-        $this->collection = new ObjectCollection($items);
+        $this->collection = new ObjectCollection($items, $this->config);
         
         $this->generator = new ObjectGenerator(
-            $this->collection->sortStructure()
+            $this->collection->sortStructure(),
+            $this->config,
+            $this->custom
         );
         
         return $this;
@@ -123,6 +149,6 @@ class DynamicMenu
      */
     public function toHtml()
     {
-        return $this->generator->withCustom($this->custom)->generate();
+        return $this->generator->generate();
     }
 }

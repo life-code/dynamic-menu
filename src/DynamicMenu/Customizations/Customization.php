@@ -41,11 +41,11 @@ class Customization
         $a_dropdown  = $this->get('a_dropdown');
         
         $generated  = '<li class="'.$li_dropdown['class'].'" '.$li_dropdown['attributes'].'>';
-        $generated .= '<a href="#href#" class="'.$a_dropdown['class'].'" '.$a_dropdown['attributes'].' title="#title#">';
+        $generated .= '<a href="#href#" class="'.$a_dropdown['class'].'" '.$a_dropdown['attributes'].' title="#title#">#icon-before#';
         $generated .= $a_dropdown['before'];
         $generated .= '#name#';
         $generated .= $a_dropdown['after'];
-        $generated .= '</a>';
+        $generated .= '#icon-after#</a>';
         
         return $generated;
     }
@@ -71,11 +71,11 @@ class Customization
         $a  = $this->get('a');
         
         $generated  = '<li class="'.$li['class'].'" '.$li['attributes'].'>';
-        $generated .= '<a href="#href#" class="'.$a['class'].'" '.$a['attributes'].' title="#title#">';
+        $generated .= '<a href="#href#" class="'.$a['class'].'" '.$a['attributes'].' title="#title#"> #icon-before# ';
         $generated .= $a['before'];
         $generated .= '#name#';
         $generated .= $a['after'];
-        $generated .= '</a>';
+        $generated .= ' #icon-after# </a>';
         $generated .= '</li>';
         
         return $generated;

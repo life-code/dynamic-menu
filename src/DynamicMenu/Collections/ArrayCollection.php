@@ -4,6 +4,7 @@ namespace DynamicMenu\Collections;
 
 use DynamicMenu\Collections\Collection;
 use DynamicMenu\Contracts\CollectionContract;
+use DynamicMenu\Supports\DefaultConfig;
 
 /**
  * Dynamic Menu
@@ -18,6 +19,13 @@ use DynamicMenu\Contracts\CollectionContract;
 class ArrayCollection extends Collection implements CollectionContract
 {
     /**
+     * Instance of class DefaultConfig.
+     * 
+     * @var \DynamicMenu\Supports\DefaultConfig
+     */ 
+    private $config;
+    
+    /**
      * Remaining items to organize
      * 
      * @var array
@@ -28,10 +36,12 @@ class ArrayCollection extends Collection implements CollectionContract
      * New instance of class.
      * 
      * @param array $items
+     * @param \DynamicMenu\Supports\DefaultConfig $config
      * @return void
      */ 
-    public function __construct($items = [])
+    public function __construct($items = [], DefaultConfig $config)
     {
+        $this->config = $config;
         $this->setItems($items);
     }
     
@@ -78,11 +88,13 @@ class ArrayCollection extends Collection implements CollectionContract
     public function filterParent(array $items, bool $parents = false)
     {
         return array_filter($items, function($item) use ($parents){
+            $parent_key = $this->config->getParentKey();
+            
             if ($parents) {
-                return ! $item['menu_id'];
+                return ! $item[$parent_key];
             }
             
-            return ($item['menu_id']);
+            return ($item[$parent_key]);
         });
     }
     
@@ -97,11 +109,14 @@ class ArrayCollection extends Collection implements CollectionContract
     public function filterChildress(array $items, $menu, bool $parents = false)
     {
         return array_filter($items, function($item) use ($parents, $menu){
+            $primary_key = $this->config->getPrimaryKey();
+            $parent_key  = $this->config->getParentKey();
+            
             if ($parents) {
-                return ((int) $item['menu_id'] === (int) $menu['id']);
+                return ((int) $item[$parent_key] === (int) $menu[$primary_key]);
             }
             
-            return ((int) $item['menu_id'] !== (int) $menu['id']);
+            return ((int) $item[$parent_key] !== (int) $menu[$primary_key]);
         });
     }
     
@@ -113,10 +128,12 @@ class ArrayCollection extends Collection implements CollectionContract
      */ 
     public function sortBy(array $items)
     {
+        $order = $this->config->getOrder();
+        
         $results = [];
 
         foreach ($items as $key => $value) {
-            $results[$key] = $value['order'];
+            $results[$key] = $value[$order];
         }
 
         asort($results, SORT_REGULAR);

@@ -62,8 +62,25 @@ class ObjectGenerator extends Generator implements GeneratorContract
      */ 
     public function replaceValues(string $dropdowm, $menu)
     {
-        $search  = ['#href#', '#name#', '#title#'];
-        $replace = [$menu->href, $menu->name, $menu->title];
+        $href  = $this->config->getHref();
+        $name  = $this->config->getName();
+        $title = $this->config->getTitle();
+        $icons = $this->config->getIcons();
+        
+        $icon_before = '';
+        $before      = $icons['before'];
+        if (isset($menu->$before)) {
+            $icon_before = $menu->$before;
+        }
+        
+        $icon_after = '';
+        $after      = $icons['after'];
+        if (isset($menu->$after)) {
+            $icon_after = $menu->$after;
+        }
+        
+        $search  = ['#href#', '#icon-before#', '#name#', '#title#', '#icon-after#'];
+        $replace = [$menu->$href, $icon_before, $menu->$name, $menu->$title, $icon_after];
         
         return str_replace($search, $replace, $dropdowm);
     }

@@ -2,6 +2,8 @@
 
 namespace DynamicMenu\Contracts;
 
+use DynamicMenu\Supports\DefaultConfig;
+
 /**
  * Dynamic Menu
  * 
@@ -18,9 +20,10 @@ interface CollectionContract
      * New instance of class.
      * 
      * @param array $items
+     * @param \DynamicMenu\Supports\DefaultConfig $config
      * @return void
      */ 
-    public function __construct($items = []);
+    public function __construct($items = [], DefaultConfig $config);
     
     /**
      * Generate parent dynamic menu

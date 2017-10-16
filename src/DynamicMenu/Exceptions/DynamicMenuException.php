@@ -16,5 +16,5 @@ use Exception;
  */
 class DynamicMenuException extends Exception
 {
-    
+    // 
 }

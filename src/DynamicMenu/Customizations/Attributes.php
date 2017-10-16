@@ -22,7 +22,7 @@ trait Attributes
      * @var array
      */ 
     private $ul_dropdown = [
-        'class'      => '',
+        'class'      => 'menu',
         'attributes' => '',
     ];
     
@@ -32,7 +32,7 @@ trait Attributes
      * @var array
      */ 
     private $li_dropdown = [
-        'class'      => '',
+        'class'      => 'dropdown',
         'attributes' => '',
     ];
     
@@ -84,20 +84,78 @@ trait Attributes
     }
     
     /**
-     * Set style
+     * Set ul_dropdown
      * 
-     * @param string $attribute
-     * @param array $style
-     * @return void
+     * @param array $ul_dropdown
+     * @return $this
      */
-    public function setStyle(string $attribute, array $style)
+    public function setUlDropdown(array $ul_dropdown)
     {
-        $this->handlerProperty($attribute);
-        
-        foreach ($style as $key => $value) {
-            $this->handlerKey($attribute, $key);
-            $this->$attribute[$key] = $value;
+        foreach ($ul_dropdown as $key => $value) {
+            $this->handlerKey('ul_dropdown', $key);
         }
+        
+        return $this;
+    }
+    
+    /**
+     * Set li_dropdown
+     * 
+     * @param array $li_dropdown
+     * @return $this
+     */
+    public function setLiDropdown(array $li_dropdown)
+    {
+        foreach ($li_dropdown as $key => $value) {
+            $this->handlerKey('li_dropdown', $key);
+        }
+        
+        return $this;
+    }
+    
+    /**
+     * Set li
+     * 
+     * @param array $li
+     * @return $this
+     */
+    public function setLi(array $li)
+    {
+        foreach ($li as $key => $value) {
+            $this->handlerKey('li', $key);
+        }
+        
+        return $this;
+    }
+    
+    /**
+     * Set a_dropdown
+     * 
+     * @param array $a_dropdown
+     * @return $this
+     */
+    public function setADropdown(array $a_dropdown)
+    {
+        foreach ($a_dropdown as $key => $value) {
+            $this->handlerKey('a_dropdown', $key);
+        }
+        
+        return $this;
+    }
+    
+    /**
+     * Set a
+     * 
+     * @param array $a
+     * @return $this
+     */
+    public function setA(array $a)
+    {
+        foreach ($a as $key => $value) {
+            $this->handlerKey('a', $key);
+        }
+        
+        return $this;
     }
     
     /**

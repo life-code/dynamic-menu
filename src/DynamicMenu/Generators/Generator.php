@@ -3,6 +3,7 @@
 namespace DynamicMenu\Generators;
 
 use DynamicMenu\Customizations\Customization;
+use DynamicMenu\Supports\DefaultConfig;
 
 /**
  * Dynamic Menu
@@ -16,6 +17,13 @@ use DynamicMenu\Customizations\Customization;
  */
 abstract class Generator
 {
+    /**
+     * Instance of class DefaultConfig.
+     * 
+     * @var \DynamicMenu\Supports\DefaultConfig
+     */ 
+    protected $config;
+    
     /**
      * The sort menus
      * 
@@ -34,24 +42,15 @@ abstract class Generator
      * New instance of class
      * 
      * @param array $menus
+     * @param \DynamicMenu\Supports\DefaultConfig $config
+     * @param \DynamicMenu\Customizations\Customization $custom
      * @return void
      */ 
-    public function __construct(array $menus = [])
+    public function __construct(array $menus = [], DefaultConfig $config, Customization $custom)
     {
-        $this->menus = $menus;
-    }
-    
-    /**
-     * Set Customization class
-     * 
-     * @param \DynamicMenu\Customizations\Customization $custom
-     * @return $this
-     */ 
-    public function withCustom(Customization $custom)
-    {
+        $this->config = $config;
+        $this->menus  = $menus;
         $this->custom = $custom;
-        
-        return $this;
     }
     
     /**
