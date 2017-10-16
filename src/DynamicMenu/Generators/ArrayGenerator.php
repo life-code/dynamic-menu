@@ -49,8 +49,29 @@ class ArrayGenerator extends Generator implements GeneratorContract
                 $this->defaultGenerate($menu);
             }
             
+            $this->handlerOlders($menu);
+            
             return $menu;
         }, $menus);
+    }
+    
+    /**
+     * Handles olders attributes
+     * 
+     * @param object $menu
+     * @return void
+     */ 
+    private function handlerOlders($menu)
+    {
+        $pattern = '/\#.*?\#/';
+        preg_match_all($pattern, $this->content, $result);
+        
+        foreach ($result[0] as $key => $value) {
+            $search  = $value;
+            $replace = str_replace('#', '', $value);
+            
+            $this->content = str_replace($search, $menu[$replace], $this->content);
+        }
     }
     
     /**
